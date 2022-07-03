@@ -1,4 +1,4 @@
-![dex2oat-optimizer](https://github.com/iamlooper/dex2oat-optimizer/raw/main/dex2oat-optimizer.png)
+![dex2oat-optimizer](https://github.com/iamlooper/dex2oat-optimizer/raw/main/dex2oat-optimizer.jpg)
 
 # dex2oat optimizer
 
