@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.4
+
+- Improved logging system
+- Fixed device freezing issues
+- Added various dalvik opt. props for A10+ devices
+- Refactored main dalvik opt. tweak
+- Misc. enhancements & fixes
+
 ## v1.3
 
 - Sync before applying tweaks
