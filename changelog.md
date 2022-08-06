@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.5
+
+- Fixed device heating issues
+- Use profile-guided compilation in main dalvik optimization
+- Improved secondary dex optimization
+- Misc. additions & refinements
+
 ## v1.4
 
 - Improved logging system

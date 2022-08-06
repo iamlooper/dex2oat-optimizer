@@ -9,10 +9,10 @@ wait_until_login() {
   done
 
   # We don't have the permission to rw "/storage/emulated/0" before the user unlocks the screen
-  local test_file="/storage/emulated/0/Android/.PERMISSION_TEST"
-  true > "$test_file"
+  test_file="/storage/emulated/0/Android/.PERMISSION_TEST"
+  true >"$test_file"
   while [[ ! -f "$test_file" ]]; do
-    true > "$test_file"
+    true >"$test_file"
     sleep 1
   done
   rm -f "$test_file"
@@ -21,7 +21,7 @@ wait_until_login() {
 wait_until_login
 
 # Sleep some time to make sure init is completed
-sleep 30
+sleep 37
 
 # Run dex2oat optimizer
 dex2oat_opt
