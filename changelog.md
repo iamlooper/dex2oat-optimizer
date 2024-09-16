@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.6.0
+
+- Improved packages tweak
+- Refined props tweak
+- Added support for KernelSU and APatch
+
 ## v1.5
 
 - Fixed device heating issues

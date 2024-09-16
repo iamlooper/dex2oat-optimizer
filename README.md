@@ -1,17 +1,27 @@
-![dex2oat-optimizer](https://github.com/iamlooper/dex2oat-optimizer/raw/main/dex2oat-optimizer.jpg)
+![dex2oat optimizer](https://github.com/iamlooper/dex2oat-optimizer/raw/main/dex2oat_optimizer.png)
 
-# dex2oat optimizer
+# dex2oat optimizer ⚡
 
-Ultimate dalvik optimization magisk module.
+An ART optimization module to accelerate app launches and improve system performance.
 
-## Explanation
+## Download 📲
 
-It improves app opening speeds by invoking built-in android dex optimization service which optimizes dalvik data of user app packages. It executes various other dalvik optimizations to reconcile secondary dalvik items & force compiles dalvik data of important system packages which improves system throughput. It will allow faster app opening speeds, better ram management & responsive system.
+[Click here](https://www.pling.com/p/1819191/) to download the dex2oat optimizer.
 
-## Notes
+## Notes 📝
 
-- You can see `dex2oat_optimizer.txt` in Internal storage / Android. It will show you what type of tweaks dex2oat optimizer has applied. 
+- This is a module, so you will need to flash it. It works on Magisk, KernelSU, and APatch.
+- You can find the `dex2oat_optimizer.log` file in Internal Storage/Android. It will show you the types of tweaks dex2oat optimizer has applied.
+- The device may overheat while the tweaks are being executed, but there's no need to worry. The overheating will subside after some time, once the tweaks are fully completed.
 
-# Download
+## Credits 📜
 
-Go to [here](https://www.pling.com/p/1819191/) to download dex2oat optimizer builds.
+### People 👥
+
+- [Kshitij](https://t.me/Stock_Sucks) (Designer)
+- [Chirag](https://t.me/selfmuser) (Tester)
+- [Fluph](https://t.me/fluphish) (Tester)
+
+## Disclosure 🔓
+
+[Click here](https://telegra.ph/Disclosure-09-16) to view the disclosure.

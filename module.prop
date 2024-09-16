@@ -1,5 +1,6 @@
 id=dex2oat_optimizer
 name=dex2oat optimizer
-version=v1.5
-author=iamlooper @ telegram
-description=Ultimate dalvik optimization magisk module
+version=v1.6.0
+versionCode=7
+author=iamlooper @ github
+description=An ART optimization module to accelerate app launches and improve system performance.
