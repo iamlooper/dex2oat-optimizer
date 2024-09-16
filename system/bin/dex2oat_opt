@@ -1,0 +1,103 @@
+#!/system/bin/sh
+# dex2oat optimizer
+# Author: Looper (iamlooper @ github)
+
+##################
+# Misc. Functions
+##################
+
+# Logging function
+log() {
+    local log_type=""
+    local timestamp=$(date '+%Y-%m-%d %H:%M:%S')
+    
+    case $1 in
+        1) log_type="INFO" ;;
+        2) log_type="WARNING" ;;
+        3) log_type="ERROR" ;;
+        0) log_type="UNKNOWN" ;;
+    esac
+    
+    echo "[${timestamp}] [${log_type}] $2" >> "/storage/emulated/0/Android/dex2oat_optimizer.log"
+}
+
+# Clear log file
+clear_log() {
+    rm -f "/storage/emulated/0/Android/dex2oat_optimizer.log"
+}
+
+setup_resetprop() {
+    if ! command -v resetprop > /dev/null 2>&1; then
+        if [ -f /data/adb/ksu/bin/resetprop ]; then
+            alias resetprop=/data/adb/ksu/bin/resetprop
+        elif [ -f /data/adb/ap/bin/resetprop ]; then
+            alias resetprop=/data/adb/ap/bin/resetprop
+        else
+            alias resetprop=setprop
+        fi
+        export resetprop
+    fi
+}
+
+##############################
+# dex2oat optimizer Functions
+##############################
+
+properties_tweak() {
+    local properties="
+        dalvik.vm.minidebuginfo false
+        dalvik.vm.dex2oat-minidebuginfo false
+        dalvik.vm.check-dex-sum false
+        dalvik.vm.checkjni false
+        dalvik.vm.verify-bytecode false
+        dalvik.gc.type generational_cc
+        dalvik.vm.usejit false
+        dalvik.vm.dex2oat-swap true
+        dalvik.vm.dex2oat-resolve-startup-strings true
+        dalvik.vm.systemservercompilerfilter speed-profile
+        dalvik.vm.systemuicompilerfilter speed-profile
+        dalvik.vm.usap_pool_enabled true
+    "
+
+    echo "$properties" | while IFS= read -r prop; do
+        [ -n "$prop" ] && resetprop $prop
+    done
+}
+
+packages_tweak() {
+    # A13 and earlier
+    pm compile -m speed-profile -a
+    pm compile -m speed-profile --secondary-dex -a
+    pm compile --compile-layouts -a
+    # A14 and later
+    pm compile -m speed-profile --full -a
+    pm art dexopt-packages -r bg-dexopt
+    pm art cleanup
+}
+
+#######
+# Main
+#######
+
+apply_tweaks() {
+    sync
+
+    clear_log
+
+    log 1 "[START] dex2oat optimizer Tweaks"
+
+    properties_tweak
+    log 1 "Completed Properties Tweak"
+    
+    packages_tweak
+    log 1 "Completed Packages Tweak"
+
+    log 1 "[END] dex2oat optimizer Tweaks"
+}
+
+main() {
+    setup_resetprop
+    apply_tweaks &>/dev/null
+}
+
+main
