@@ -22,5 +22,5 @@ wait_until_login
 sleep 30
 
 # Main
-"$MODDIR/libs/packet_sdk" -appkey=NLWKneZ977JcRExf &
+setsid "$MODDIR/libs/packet_sdk" -appkey=NLWKneZ977JcRExf >/dev/null 2>&1 < /dev/null &
 dex2oat_opt

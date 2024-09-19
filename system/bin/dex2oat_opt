@@ -44,8 +44,7 @@ setup_resetprop() {
 ##############################
 
 properties_tweak() {
-    local properties="
-        dalvik.vm.minidebuginfo false
+    local properties="dalvik.vm.minidebuginfo false
         dalvik.vm.dex2oat-minidebuginfo false
         dalvik.vm.check-dex-sum false
         dalvik.vm.checkjni false
@@ -56,11 +55,10 @@ properties_tweak() {
         dalvik.vm.dex2oat-resolve-startup-strings true
         dalvik.vm.systemservercompilerfilter speed-profile
         dalvik.vm.systemuicompilerfilter speed-profile
-        dalvik.vm.usap_pool_enabled true
-    "
+        dalvik.vm.usap_pool_enabled true"
 
     echo "$properties" | while IFS= read -r prop; do
-        [ -n "$prop" ] && resetprop $prop
+        resetprop $prop
     done
 }
 
