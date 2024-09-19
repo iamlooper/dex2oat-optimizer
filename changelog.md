@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.6.1
+
+- Misc. changes
+
 ## v1.6.0
 
 - Improved packages tweak

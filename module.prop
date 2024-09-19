@@ -1,6 +1,6 @@
 id=dex2oat_optimizer
 name=dex2oat optimizer
-version=v1.6.0
-versionCode=7
+version=v1.6.1
+versionCode=8
 author=iamlooper @ github
 description=An ART optimization module to accelerate app launches and improve system performance.
