@@ -1,0 +1,1 @@
+rm -f /data/media/0/Android/dex2oat_optimizer.log
