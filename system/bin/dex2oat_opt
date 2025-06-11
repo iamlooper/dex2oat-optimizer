@@ -26,6 +26,10 @@ clear_log() {
     rm -f "/storage/emulated/0/Android/dex2oat_optimizer.log"
 }
 
+get_android_version() {
+    getprop ro.build.version.release
+}
+
 setup_resetprop() {
     if ! command -v resetprop > /dev/null 2>&1; then
         if [ -f /data/adb/ksu/bin/resetprop ]; then
@@ -63,14 +67,20 @@ properties_tweak() {
 }
 
 packages_tweak() {
-    # A13 and earlier
+    ANDROID_VERSION=$(get_android_version)
+    if [ "$(printf '%s\n' "$ANDROID_VERSION" "13" | sort -V | head -n1)" = "$ANDROID_VERSION" ]; then
+    log 1 "Runs on Android version 13 or below"
     pm compile -m speed-profile -a
     pm compile -m speed-profile --secondary-dex -a
     pm compile --compile-layouts -a
-    # A14 and later
+    elif [ "$(printf '%s\n' "$ANDROID_VERSION" "14" | sort -V | head -n1)" = "14" ]; then
+	log 1 "Android version 14 or above running"
     pm compile -m speed-profile --full -a
     pm art dexopt-packages -r bg-dexopt
     pm art cleanup
+	else
+	log 1 "Android version can't run optimization"
+    fi
 }
 
 #######
