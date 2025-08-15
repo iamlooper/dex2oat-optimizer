@@ -21,7 +21,3 @@ An ART optimization module to accelerate app launches and improve system perform
 - [Kshitij](https://t.me/Stock_Sucks) (Designer)
 - [Chirag](https://t.me/selfmuser) (Tester)
 - [Fluph](https://t.me/fluphish) (Tester)
-
-## Disclosure 🔓
-
-[Click here](https://telegra.ph/Disclosure-09-16) to view the disclosure.
